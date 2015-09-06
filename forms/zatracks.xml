@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="utf-8"?>
+<form>
+   <fields name="track">
+      <fieldset name="zatracks" label="PLG_CONTENT_ZATRACKS_FIELDSET_TRACK_LBL">
+        <field
+            name="upload"
+            type="file"
+            label="PLG_CONTENT_ZATRACKS_FIELD_UPLOAD_LBL"
+            description="PLG_CONTENT_ZATRACKS_FIELD_UPLOAD_DESC"
+            size="10"
+            onchange="Joomla.submitbutton('article.apply')"
+            accept=".gpx"
+        />
+        <field
+            name="name"
+            type="text"
+            description="PLG_CONTENT_ZATRACKS_FIELD_NAME_DESC"
+            label="PLG_CONTENT_ZATRACKS_FIELD_NAME_LBL"
+            hint="PLG_CONTENT_ZATRACKS_FIELD_NAME_HINT"
+        />
+        <field
+            name="activity"
+            type="list"
+            label="PLG_CONTENT_ZATRACKS_FIELD_ACTIVITY_LBL"
+            description="PLG_CONTENT_ZATRACKS_FIELD_ACTIVITY_DESC"
+            size="1"
+            default="1">
+            <option value="0">PLG_CONTENT_ZATRACKS_FIELD_ACTIVITY_OPTION_WALK</option>
+            <option value="1">PLG_CONTENT_ZATRACKS_FIELD_ACTIVITY_OPTION_BIKE</option>
+            <option value="2">PLG_CONTENT_ZATRACKS_FIELD_ACTIVITY_OPTION_RUN</option>
+            <option value="3">PLG_CONTENT_ZATRACKS_FIELD_ACTIVITY_OPTION_CANOE</option>
+        </field>
+        <field
+            name="distance"
+            type="text"
+            default="0"  
+            label="PLG_CONTENT_ZATRACKS_FIELD_DISTANCE_LBL"
+            description="PLG_CONTENT_ZATRACKS_FIELD_DISTANCE_DESC"   
+            filter="float"
+        /> 
+        <field
+            name="duration"
+            type="text"
+            default="0"
+            label="PLG_CONTENT_ZATRACKS_FIELD_DURATION_LBL"
+            description="PLG_CONTENT_ZATRACKS_FIELD_DURATION_DESC"    
+            filter="safehtml" 
+            readonly="true"
+        />
+        <field
+            name="starttime"
+            type="text"
+            default="0000-00-00 00:00:00"
+            label="PLG_CONTENT_ZATRACKS_FIELD_STARTTIME_LBL"
+            description="PLG_CONTENT_ZATRACKS_FIELD_STARTTIME_DESC"
+            format="%Y-%m-%d %H:%M:%S"
+            readonly="true"
+            filter="safehtml"
+        />
+        <field
+            name="avs"
+            type="text"
+            default="0"   
+            label="PLG_CONTENT_ZATRACKS_FIELD_AVS_LBL"
+            description="PLG_CONTENT_ZATRACKS_FIELD_AVS_DESC" 
+            filter="float" 
+        />
+         <field
+            name="geojson"
+            type="hidden"
+            filter="raw"
+        />
+        <field
+            name="polyline"
+            type="hidden"
+            filter="raw"
+        />
+        <field
+            name="custom"
+            type="hidden"
+            filter="safehtml"
+        />
+      </fieldset>
+   </fields>
+</form>

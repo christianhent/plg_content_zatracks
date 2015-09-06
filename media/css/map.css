@@ -1,0 +1,12 @@
+#map {
+	width: 100%;
+	height: 300px;
+    background-color: #ccffcc;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    border-radius: 5px;
+    border: 1px solid #cecdb4;
+}
+#map-actions {
+    text-align: right;
+}
