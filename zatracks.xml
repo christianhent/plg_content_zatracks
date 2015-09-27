@@ -26,6 +26,8 @@
 	<languages>
 		<language tag="en-GB">language/en-GB/en-GB.plg_content_zatracks.ini</language>
 		<language tag="en-GB">language/en-GB/en-GB.plg_content_zatracks.sys.ini</language>
+        <language tag="fr-FR">language/fr-FR/fr-FR.plg_content_zatracks.ini</language>
+        <language tag="fr-FR">language/fr-FR/fr-FR.plg_content_zatracks.sys.ini</language>
 	</languages>
     <install>
         <sql>
