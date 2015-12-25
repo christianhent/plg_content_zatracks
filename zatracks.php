@@ -24,11 +24,13 @@ class PlgContentZatracks extends JPlugin
 		$this->libPath     = JPath::clean(JPATH_ROOT .'/plugins/content/zatracks/lib/');
 		$this->tmpFile     = 'tmp.gpx';
 		$this->regexpr     = '/{'.$this->placeholder.'.*?}/i';
-        $this->layoutPath  = JPath::clean(JPATH_ROOT .'/plugins/content/zatracks/layouts/');
-        $this->trackLayout = new JLayoutFile('zatracks', $this->layoutPath, array(
-            'suffixes' => array('plg'),
-            'debug' => $this->params->get('debug_layout'))
-        );
+        $this->layoutPath  = JPath::clean(JPATH_ROOT .'/layouts/joomla/zatracks/');
+
+        $this->trackLayout = new JLayoutFile('joomla.zatracks.default', $basePath = null, array(
+        	'suffixes' => array('bs2', 'bs3'),
+        	'debug' => $this->params->get('debug_layout')
+        ));
+
 		$this->loadLanguage();
 	}
 

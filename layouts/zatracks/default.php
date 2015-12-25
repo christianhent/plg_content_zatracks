@@ -2,6 +2,7 @@
 defined('_JEXEC') or die;
 
 JHtml::addIncludePath(JPATH_SITE . '/plugins/content/zatracks/helpers/html');
+$debug = $displayData["plg_params"]["debug_layout"];
 ?>
 <dl>
     <dt><?php echo JText::_('PLG_CONTENT_ZATRACKS_FIELD_NAME_LBL');?></dt>
@@ -20,7 +21,7 @@ JHtml::addIncludePath(JPATH_SITE . '/plugins/content/zatracks/helpers/html');
 </dl>
 <?php if ($displayData['plg_params']['show_map'] == 1) : ?>
     <?php if (!empty($displayData['track']['polyline'])) : ?>
-        <?php echo $this->sublayout('map',$displayData['track']['polyline']);?>
+        <?php $layout = new JLayoutFile('joomla.zatracks.map', $basePath = null, array('suffixes' => array('bs2', 'bs3'), 'debug' =>$debug));?>
+        <?php echo $layout->render($displayData['track']['polyline']);?>
     <?php endif; ?>
 <?php endif; ?>
-
