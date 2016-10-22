@@ -2,7 +2,7 @@
 defined('JPATH_BASE') or die;
 
 use Joomla\Utilities\ArrayHelper;
-use Joomla\String\String;
+use Joomla\String\StringHelper;
 
 jimport('joomla.plugin.plugin');
 
@@ -243,7 +243,7 @@ class PlgContentZatracks extends JPlugin
 	{
 		if (in_array($context, array('com_content.category','com_content.featured','com_content.archive')))
 		{
-            if ( String::strpos( $row->text, '{'.$this->placeholder ) === false )
+            if ( StringHelper::strpos( $row->text, '{'.$this->placeholder ) === false )
 			{
                 return true;
 			}
@@ -288,7 +288,7 @@ class PlgContentZatracks extends JPlugin
 		if ($this->params->get('output') == 3) 
 		{
 			
-			if ( String::strpos( $row->text, '{'.$this->placeholder ) === false )
+			if ( StringHelper::strpos( $row->text, '{'.$this->placeholder ) === false )
 			{
 				return true;
 			}
