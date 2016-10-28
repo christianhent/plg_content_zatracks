@@ -1,8 +1,12 @@
 <?php
 defined('_JEXEC') or die;
+#google api key
+$plugin  = JPluginHelper::getPlugin('content', 'zatracks');
+$params  = new JRegistry($plugin->params);
+$api_key = $params->get('gapi_key');
 # load google map asynchronous and show the encoded polyline
-$app    = JFactory::getApplication();
-$doc    = $app->getDocument();
+$app     = JFactory::getApplication();
+$doc     = $app->getDocument();
 $doc->addStyleSheet('media/plg_content_zatracks/css/map.css');
 $doc->addScriptDeclaration("
    function initialize(){
@@ -52,7 +56,7 @@ $doc->addScriptDeclaration("
    function loadScript(){
      var script = document.createElement('script');
      script.type = 'text/javascript';
-     script.src = 'https://maps.googleapis.com/maps/api/js?libraries=geometry&v=3.exp&signed_in=false&callback=initialize';
+     script.src = 'https://maps.googleapis.com/maps/api/js?libraries=geometry&v=3.exp&callback=initialize&key=". $api_key ."';
      document.body.appendChild(script);
    }
    window.onload = loadScript;
