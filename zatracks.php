@@ -1,4 +1,17 @@
 <?php
+/**
+ * 
+ * @category   GPX Extension
+ * @package    Joomla.Plugin
+ * @subpackage Content.Zatracks
+ * @author     Christian Hent <hent.dev@googlemail.com>
+ * @copyright  Copyright (C) 2017 Christian Hent
+ * @license    GNU General Public License version 2 or later; see LICENSE.txt
+ * @link       https://github.com/christianhent/plg_content_zatracks
+ * 
+ * @version    2.2.1
+ * 
+ */
 defined('JPATH_BASE') or die;
 
 use Joomla\Utilities\ArrayHelper;
@@ -27,8 +40,8 @@ class PlgContentZatracks extends JPlugin
         $this->layoutPath  = JPath::clean(JPATH_ROOT .'/layouts/joomla/zatracks/');
 
         $this->trackLayout = new JLayoutFile('joomla.zatracks.default', $basePath = null, array(
-        	'suffixes' => array('bs2', 'bs3'),
-        	'debug' => $this->params->get('debug_layout')
+        	'suffixes' => array('bs2', 'bs3', 'bs4', 'custom'),
+        	'debug' => (bool)$this->params->get('debug_layout')
         ));
 
 		$this->loadLanguage();
@@ -490,7 +503,7 @@ class PlgContentZatracks extends JPlugin
 		);
 
 		JLoader::register('GPXProcessor', $this->libPath.'processor.php');
-		JLoader::register('PolylineEncoder', $this->libPath.'polylineEncoder.php');
+		JLoader::register('PolylineEncoder', $this->libPath.'polylineencoder.php');
 		JLoader::register('Location\Coordinate', $this->libPath.'Location/Coordinate.php');
 		JLoader::register('Location\Polyline', $this->libPath.'Location/Polyline.php');
 		JLoader::register('Location\Ellipsoid', $this->libPath.'Location/Ellipsoid.php');

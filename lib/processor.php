@@ -1,10 +1,18 @@
 <?php
 /**
-* @copyright 	(C) 2013 B Tasker (http://www.bentasker.co.uk). All rights reserved
-*				(C) 2015 C Hent (http://www.zenjiapps.com). All rights reserved
-*
-* @license 		GNU GPL V2 - See LICENSE
-*/
+ * 
+ * @category   GPX Extension
+ * @package    Joomla.Plugin
+ * @subpackage Content.Zatracks
+ * @author     Christian Hent <hent.dev@googlemail.com>
+ * @copyright  Copyright(C) 2013 B Tasker (http://www.bentasker.co.uk)
+ * @copyright  Copyright (C) 2017 Christian Hent
+ * @license    GNU General Public License version 2 or later; see LICENSE.txt
+ * @link       https://github.com/christianhent/plg_content_zatracks
+ * 
+ * @version    2.2.1
+ * 
+ */
 
 defined('_JEXEC') or die;
 
@@ -18,7 +26,7 @@ class GPXProcessor
 	private $ftimes;
 	private $trackduration;
 	
-	private $processor_version = '1.1.3';
+	private $processor_version = '2.2.0';
 
 	function __construct()
 	{

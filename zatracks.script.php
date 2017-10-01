@@ -1,4 +1,17 @@
 <?php
+/**
+ * 
+ * @category   GPX Extension
+ * @package    Joomla.Plugin
+ * @subpackage Content.Zatracks
+ * @author     Christian Hent <hent.dev@googlemail.com>
+ * @copyright  Copyright (C) 2017 Christian Hent
+ * @license    GNU General Public License version 2 or later; see LICENSE.txt
+ * @link       https://github.com/christianhent/plg_content_zatracks
+ * 
+ * @version    2.2.1
+ * 
+ */
 defined('_JEXEC') or die('Restricted access');
 
 
