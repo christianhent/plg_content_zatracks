@@ -80,6 +80,40 @@
             type="hidden"
             filter="safehtml"
         />
+        <field
+            name="min_elevation"
+            type="text"
+            default="0"   
+            label="PLG_CONTENT_ZATRACKS_FIELD_MIN_ELEVATION_LBL"
+            description="PLG_CONTENT_ZATRACKS_FIELD_MIN_ELEVATION_DESC" 
+            filter="integer"
+            readonly="true" 
+        />
+        <field
+            name="max_elevation"
+            type="text"
+            default="0"   
+            label="PLG_CONTENT_ZATRACKS_FIELD_MAX_ELEVATION_LBL"
+            description="PLG_CONTENT_ZATRACKS_FIELD_MAX_ELEVATION_DESC" 
+            filter="integer"
+            readonly="true" 
+        />
+        <field
+            name="elevation_gain"
+            type="text"
+            default="0"   
+            label="PLG_CONTENT_ZATRACKS_FIELD_ELEVATION_GAIN_LBL"
+            description="PLG_CONTENT_ZATRACKS_FIELD_ELEVATION_GAIN_DESC" 
+            filter="integer"
+        />
+        <field
+            name="elevation_loss"
+            type="text"
+            default="0"   
+            label="PLG_CONTENT_ZATRACKS_FIELD_ELEVATION_LOSS_LBL"
+            description="PLG_CONTENT_ZATRACKS_FIELD_ELEVATION_LOSS_DESC" 
+            filter="integer" 
+        />
       </fieldset>
    </fields>
 </form>

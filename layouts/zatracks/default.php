@@ -9,7 +9,7 @@
  * @license    GNU General Public License version 2 or later; see LICENSE.txt
  * @link       https://github.com/christianhent/plg_content_zatracks
  * 
- * @version    2.2.1
+ * @version    2.2.2
  * 
  */
 defined('_JEXEC') or die;
@@ -33,6 +33,17 @@ $trc = $displayData['track'];
     <dd><?php echo $trc['distance'] ;?></dd>
     <dt><?php echo JText::_('PLG_CONTENT_ZATRACKS_FIELD_AVS_LBL');?></dt>
     <dd><?php echo $trc['avs']; ?></dd>
+    <dt><?php echo JText::_('PLG_CONTENT_ZATRACKS_FIELD_MIN_ELEVATION_LBL');?></dt>
+    <dd><?php echo $trc['min_elevation']; ?></dd>
+    <dt><?php echo JText::_('PLG_CONTENT_ZATRACKS_FIELD_MAX_ELEVATION_LBL');?></dt>
+    <dd><?php echo $trc['max_elevation']; ?></dd>
+    <dt><?php echo JText::_('PLG_CONTENT_ZATRACKS_FIELD_ELEVATION_GAIN_LBL');?></dt>
+    <dd><?php echo $trc['elevation_gain']; ?></dd>
+    <!-- if not cycling, show elevation loss -->
+    <?php if ( $trc['activity'] != 1  ) : ?>
+    <dt><?php echo JText::_('PLG_CONTENT_ZATRACKS_FIELD_ELEVATION_LOSS_LBL');?></dt>
+    <dd><?php echo $trc['elevation_loss']; ?></dd>
+    <?php endif; ?>
 </dl>
 
 <?php if ($displayData['plg_params']['show_map'] == 1 && !empty($trc['geojson'])  ) : ?>

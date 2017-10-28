@@ -12,7 +12,7 @@
  * @link       https://github.com/christianhent/plg_content_zatracks
  * @see 	   http://facstaff.unca.edu/mcmcclur/GoogleMaps/EncodePolyline/
  * 
- * @version    2.2.1
+ * @version    2.2.2
  * 
  */
 

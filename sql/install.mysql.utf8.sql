@@ -10,5 +10,9 @@ CREATE TABLE IF NOT EXISTS `#__zatracks` (
   `starttime` datetime NOT NULL,
   `avs` decimal(4,2) NOT NULL,
   `strava_activity_id` bigint(20) NOT NULL,
+  `min_elevation` int(5) NOT NULL,
+  `max_elevation` int(5) NOT NULL,
+  `elevation_gain` int(5) NOT NULL,
+  `elevation_loss` int(5) NOT NULL,
   `custom` varchar(255) NOT NULL
 );

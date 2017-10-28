@@ -218,6 +218,9 @@ class PlgContentZatracks extends JPlugin
 			$editableFormData->activity = $formData->track->activity;
 			$editableFormData->avs      = $formData->track->avs;
 			$editableFormData->distance = $formData->track->distance;
+			#new
+			$editableFormData->elevation_gain = $formData->track->elevation_gain;
+			$editableFormData->elevation_loss = $formData->track->elevation_loss;
 		}
 		else
 		{
@@ -402,7 +405,12 @@ class PlgContentZatracks extends JPlugin
 			$data->geojson   = $this->processedData->geojson;
 			$data->polyline  = $this->processedData->polyline;
 			$data->avs       = $this->processedData->avs;
-			$data->distance  = $this->processedData->distance;	
+			$data->distance  = $this->processedData->distance;
+			//new
+			$data->min_elevation  = $this->processedData->min_elevation;
+			$data->max_elevation  = $this->processedData->max_elevation;
+			$data->elevation_gain = $this->processedData->elevation_gain;
+			$data->elevation_loss = $this->processedData->elevation_loss;	
 		}
 		else
 		{
@@ -410,6 +418,9 @@ class PlgContentZatracks extends JPlugin
 			$data->name      = $editableFormData->name;
 			$data->avs       = $editableFormData->avs;
 			$data->distance  = $editableFormData->distance;
+			//new
+			$data->elevation_gain = $editableFormData->elevation_gain;
+			$data->elevation_loss = $editableFormData->elevation_loss;
 		}
 
 		if ($exists)
@@ -455,7 +466,12 @@ class PlgContentZatracks extends JPlugin
 		$data->track->avs       = $track->avs;
 		$data->track->geojson   = $track->geojson;
 		$data->track->polyline  = $track->polyline;
-		
+		#new
+		$data->track->min_elevation  = $track->min_elevation;
+		$data->track->max_elevation  = $track->max_elevation;
+		$data->track->elevation_gain = $track->elevation_gain;
+		$data->track->elevation_loss = $track->elevation_loss;
+
 		return $data;
 	}
 
@@ -679,7 +695,53 @@ class PlgContentZatracks extends JPlugin
 		$this->processedData->distance  = $dc->getLength(new Location\Distance\Vincenty()) / 1000;
 		$this->processedData->avs       = ($dc->getLength(new Location\Distance\Vincenty())/$this->processedData->duration)*3.6;
 
+		//new
+		$elevationStats                      = $this->_buildElevationStats($geoArray);
+		$this->processedData->min_elevation  = $elevationStats['min_elevation'];
+		$this->processedData->max_elevation  = $elevationStats['max_elevation'];
+		$this->processedData->elevation_gain = $elevationStats['elevation_gain'];
+		$this->processedData->elevation_loss = $elevationStats['elevation_loss'];
+
 		return true;
+	}
+
+	protected function _buildElevationStats($geoArray)
+	{
+		$trackpoints = array();
+		$elevationStats = array();
+		
+		$prev_elevation = 0;
+		$elevation_gain = 0;
+		$elevation_loss = 0;
+
+		foreach ($geoArray as $trackpoint) {
+			array_push($trackpoints, $trackpoint[2]);
+		}
+
+		foreach ($trackpoints as $i=>$elevation)
+		{
+			if($i > 0) 
+			{
+				if($elevation > $prev_elevation) 
+				{
+					$elevation_gain = $elevation_gain + ($elevation - $prev_elevation);
+				} 
+				else 
+				{
+					$elevation_loss = $elevation_loss + ($prev_elevation - $elevation);
+				}
+			}
+	
+			$prev_elevation = $elevation;
+
+			$elevationStats['min_elevation'] = $elevationStats['min_elevation']> 0 ? ($elevation > 0 ? (int)min($elevationStats['min_elevation'], $elevation) : $elevationStats['min_elevation']) : $elevation;
+			$elevationStats['max_elevation'] = (int)max($elevationStats['max_elevation'], $elevation);
+		}
+
+		$elevationStats['elevation_gain'] = (int)round($elevation_gain);
+		$elevationStats['elevation_loss'] = (int)round($elevation_loss);
+
+        return $elevationStats;	
 	}
 
 	protected function _buildPolyline($trackpoints)
