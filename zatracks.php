@@ -9,7 +9,7 @@
  * @license    GNU General Public License version 2 or later; see LICENSE.txt
  * @link       https://github.com/christianhent/plg_content_zatracks
  * 
- * @version    2.2.1
+ * @version    2.2.2
  * 
  */
 defined('JPATH_BASE') or die;
