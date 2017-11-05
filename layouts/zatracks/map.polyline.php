@@ -9,18 +9,18 @@
  * @license    GNU General Public License version 2 or later; see LICENSE.txt
  * @link       https://github.com/christianhent/plg_content_zatracks
  * 
- * @version    2.2.2
+ * @version    2.2.3
  * 
  */
 defined('_JEXEC') or die;
 
 $app = JFactory::getApplication();
 $doc = $app->getDocument();
-$doc->addStyleSheet('https://unpkg.com/leaflet@1.1.0/dist/leaflet.css');
+$doc->addStyleSheet('media/plg_content_zatracks/css/leaflet.css');
 $doc->addStyleSheet('media/plg_content_zatracks/css/map.css');
-$doc->addScript('https://unpkg.com/leaflet@1.1.0/dist/leaflet.js');
+$doc->addScript('media/plg_content_zatracks/js/leaflet.js');
 $doc->addScript('media/plg_content_zatracks/js/Polyline.encoded.js');
-$doc->addScript('http://d3js.org/d3.v3.min.js');
+$doc->addScript('media/plg_content_zatracks/js/d3.v3.min.js');
 ?>
 <div id="map"></div>
 
@@ -37,7 +37,7 @@ $doc->addScript('http://d3js.org/d3.v3.min.js');
 		},
 		layers: [tile]
 	});
-	var encoded = '<?php echo $displayData ?>';
+	var encoded = <?php echo json_encode($displayData) ?>;
 	var polyline = L.Polyline.fromEncoded(encoded, {
 		color: 'red',
 		weight: 3,

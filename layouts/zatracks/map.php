@@ -9,19 +9,19 @@
  * @license    GNU General Public License version 2 or later; see LICENSE.txt
  * @link       https://github.com/christianhent/plg_content_zatracks
  * 
- * @version    2.2.2
+ * @version    2.2.3
  * 
  */
 defined('_JEXEC') or die;
 
 $app = JFactory::getApplication();
 $doc = $app->getDocument();
-$doc->addStyleSheet('https://unpkg.com/leaflet@1.1.0/dist/leaflet.css');
-$doc->addStyleSheet('https://cdnjs.cloudflare.com/ajax/libs/leaflet.fullscreen/1.4.3/Control.FullScreen.min.css');
+$doc->addStyleSheet('media/plg_content_zatracks/css/leaflet.css');
+$doc->addStyleSheet('media/plg_content_zatracks/css/Control.FullScreen.min.css');
 $doc->addStyleSheet('media/plg_content_zatracks/css/map.css');
-$doc->addScript('https://unpkg.com/leaflet@1.1.0/dist/leaflet.js');
-$doc->addScript('http://d3js.org/d3.v3.min.js');
-$doc->addScript('https://cdnjs.cloudflare.com/ajax/libs/leaflet.fullscreen/1.4.3/Control.FullScreen.js');
+$doc->addScript('media/plg_content_zatracks/js/leaflet.js');
+$doc->addScript('media/plg_content_zatracks/js/d3.v3.min.js');
+$doc->addScript('media/plg_content_zatracks/js/Control.FullScreen.js');
 $doc->addScript('media/plg_content_zatracks/js/leaflet.elevation-0.0.4.min.js');
 ?>
 <div id="map"></div>

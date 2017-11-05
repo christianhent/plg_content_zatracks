@@ -2,12 +2,12 @@
 <extension version="3.1" type="plugin" group="content" method="upgrade">
 	<name>plg_content_zatracks</name>
 	<author>Christian Hent</author>
-	<creationDate>Oct 2017</creationDate>
+	<creationDate>Nov 2017</creationDate>
 	<copyright>Copyright (C) Christian Hent. All rights reserved.</copyright>
 	<license>GNU General Public License version 2 or later; see LICENSE.txt</license>
 	<authorEmail>hent.dev@googlemail.com</authorEmail>
 	<authorUrl>http://www.zenjiapps.com</authorUrl>
-	<version>2.2.2</version>
+	<version>2.2.3</version>
 	<description>PLG_CONTENT_ZATRACKS_XML_DESCRIPTION</description>
 	<scriptfile>zatracks.script.php</scriptfile>
 	<files>
