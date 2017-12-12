@@ -467,10 +467,11 @@ class PlgContentZatracks extends JPlugin
 		$data->track->geojson   = $track->geojson;
 		$data->track->polyline  = $track->polyline;
 		#new
-		$data->track->min_elevation  = $track->min_elevation;
-		$data->track->max_elevation  = $track->max_elevation;
-		$data->track->elevation_gain = $track->elevation_gain;
-		$data->track->elevation_loss = $track->elevation_loss;
+		$data->track->min_elevation      = $track->min_elevation;
+		$data->track->max_elevation      = $track->max_elevation;
+		$data->track->elevation_gain     = $track->elevation_gain;
+		$data->track->elevation_loss     = $track->elevation_loss;
+		$data->track->strava_activity_id = $track->strava_activity_id;
 
 		return $data;
 	}
