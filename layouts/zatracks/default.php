@@ -45,15 +45,8 @@ $trc = $displayData['track'];
     <dd><?php echo $trc['elevation_loss']; ?></dd>
     <?php endif; ?>
 </dl>
-
+<!-- map -->
 <?php if ($displayData['plg_params']['show_map'] == 1 && !empty($trc['geojson'])  ) : ?>
     <?php $layout = new JLayoutFile('joomla.zatracks.map', $basePath = null, array('suffixes' => array(),'debug' =>(bool)$dbg));?>
     <?php echo $layout->render($trc['geojson']);?>
 <?php endif; ?>
-
-<!-- or use instead the encoded polyline -->
-
-<?php //if ($displayData['plg_params']['show_map'] == 1 && !empty($trc['polyline'])  ) : ?>
-    <?php //$layout = new JLayoutFile('joomla.zatracks.map', $basePath = null, array('suffixes' => array('polyline'),'debug' =>(bool)$dbg));?>
-    <?php //echo $layout->render($trc['polyline']);?>
-<?php //endif; ?>

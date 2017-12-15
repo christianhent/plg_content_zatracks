@@ -23,7 +23,6 @@ $doc->addScript('media/plg_content_zatracks/js/Polyline.encoded.js');
 $doc->addScript('media/plg_content_zatracks/js/d3.v3.min.js');
 ?>
 <div id="map"></div>
-
 <script type="text/javascript">
 	var url  = '<a href="http://openstreetmap.org">OpenStreetMap</a>';
 	var tile = new L.TileLayer('http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
@@ -43,63 +42,6 @@ $doc->addScript('media/plg_content_zatracks/js/d3.v3.min.js');
 		weight: 3,
 		opacity: 0.5
 	});
-
 	polyline.addTo(map);
 	map.fitBounds(polyline.getBounds());
-
-	//(waypoint) markers support
-		
-	/*example usage in content items:
-	<ul id="wpts" hidden>
-		<li title="Wöhrder Wiese">49.450647,11.0866813</li>
-		<li title="Wasserwerk Erlenstegen">49.472041,11.1398093</li>
-		<li title="Brücke am Pulversee">49.458071,11.1097983</li>
-	</ul>
-	*/
-
-	/*document.addEventListener("DOMContentLoaded", function(event)
-	{
-		var container = document.getElementById("wpts");
-
-		if (typeof(container) != 'undefined' && container != null)
-		{
-			var wpts   = document.getElementById("wpts").children;
-			var string = null;
-			var title  = null;
-			var latlng = null;
-
-			if (typeof(wpts) != 'undefined' && wpts != null)
-			{
-				for(i=0; i < wpts.length; i++)
-				{
-					if( typeof wpts[i].innerHTML === "string" && wpts[i].innerHTML.length > 0 )
-					{
-						string = wpts[i].innerHTML;
-						latlng = string.split(",");
-
-						if( parseFloat(latlng[0]) && parseFloat(latlng[1]) )
-						{
-							//(waypoint)marker
-							var circle = L.circleMarker([latlng[0],latlng[1]], {
-								color: '#FF4500',
-								fillColor: '#FF4500',
-								fillOpacity: 0.75,
-								radius: 6,
-								stroke: false
-							}).addTo(map);
-							//popup
-							if( typeof wpts[i].title === "string" && wpts[i].title.length > 0 )
-							{
-								circle.bindPopup(wpts[i].title);
-							}
-						}
-						else
-						{
-							break;
-						}	
-					}	
-				}
-			}
-		}	
-	});*/	
 </script>
